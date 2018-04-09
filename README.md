@@ -36,7 +36,7 @@ let randomNumber = Math.random() * 100
 ### OPDRACHT
 
 Lees de [documentatie van setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout)
-- Gebruik nu setTimeout om nieuwe visjes en bubbles te plaatsen. 
+- Gebruik nu setTimeout om steeds met een tussenpauze nieuwe visjes en bubbles te plaatsen. 
 - Lukt het je om te stoppen als er 100 visjes zijn?
 
 ```
