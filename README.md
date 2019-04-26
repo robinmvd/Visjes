@@ -41,7 +41,8 @@ fish.style.filter = "hue-rotate(200deg)"
 - Als geklikt wordt op de vis geef je de geklikte vis de CSS class "deadfish" door `element.classList.add("deadfish")` te gebruiken.
 - Als geklikt wordt op de bubble verwijder je het element met `element.remove()`
 
-## Code voorbeelden week 1
+
+# Code voorbeelden week 1
 
 Semantische HTML elementen
 ```
