@@ -1,24 +1,12 @@
 //
-// geef de vis een random positie en een random kleur
+// vis element
 //
-let fishes = document.getElementsByTagName("fish")
-let fish = fishes[0]
-fish.style.left = "200px"
-fish.style.top = "100px"
-fish.style.webkitFilter = "hue-rotate(200deg)"
+let fish = document.getElementsByTagName("fish")[0]
+fish.style.transform = "translate(200px, 100px)"
 fish.style.filter = "hue-rotate(200deg)"
 
 //
-// geef de bubble een random positie
+// bubble element
 //
-let bubbles = document.getElementsByTagName("bubble")
-let bubble = bubbles[0]
-bubble.style.left = "200px"
-bubble.style.top = "0px"
-
-//
-// roep een functie aan als alles geladen is
-//
-window.addEventListener("load", function () {
-    console.log("start het aquarium")
-})
+let bubble = document.getElementsByTagName("bubble")[0]
+bubble.style.transform = "translate(20vw, 100vh)"

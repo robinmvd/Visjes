@@ -1,53 +1,91 @@
 # CMTTHE04 Week1 oefening 1
 
-Werken met loops, semantische elementen
+- Code voorbeelden week 1
+- Opdracht
 
-### OPDRACHT
+## Code voorbeelden week 1
 
-Lees het **HTML en CSS voor Games** gedeelte uit de Quickstart
-
-- Verwijder de fish en bubble uit de html file
-- Bekijk het bestand `main.js`. Verwijder de `document.getElementBy...` regels - het element staat immers niet meer in de DOM.
-- Voeg in `main.js` een vis en een bubble toe aan de DOM. Gebruik hierbij:
+Semantische HTML elementen
 ```
-let element = document.createElement(...)
-document.body.appendChild(element)
+<road>
+    <car></car>
+    <car></car>
+</road>
 ```
 
-### OPDRACHT
+CSS voor semantische elementen
+```
+car {
+   display: block;
+   position:absolute;
+   width:100px; height:100px;
+   background-image: url(car.png);
+}
+```
+Aanmaken elementen met javascript
+```
+let c = document.createElement("car")
+document.body.appendChild(c)
+```
+Positioneren  elementen met javascript
+```
+c.style.transform = "translate(20px, 20px)"
 
-In `main.js` vind je code om de vis en bubble een kleur en plek te geven. 
+let posx = 100
+let posy = 300
+c.style.transform = `translate(${posx}px, ${posy}px)`
+```
+Random getal tussen 0 en afmeting window
+```
+let randomPosition = Math.random() * window.innerWidth
+```
+Adding a click handler:
+```
+element.addEventListener("click", clickMe)
 
-- Zet de vis op een willekeurige x en y positie over het hele scherm
-- Geef de vis een willekeurige kleur tussen 0 en 360
-- Zet de bubble op een willekeurige x positie over de breedte van het scherm
+function clickMe(e){
+    console.log("you clicked on " + e.target)
+}
+```
+
+## Opdracht 1
+
+Download of clone deze repository naar je computer. Open de HTML file in http://localhost.
+
+HTML
+
+- Verwijder `<fish>` en `<bubble>` uit de html file
+
+JAVASCRIPT
+
+- Vervang `let fish = document.getElementsByTagName("fish")[0]` door 
+```
+let fish = document.createElement("fish")
+document.body.appendChild(fish)
+```
+
+- Doe nu ditzelfde voor het bubble element.
+- Plaats je code in een functie.
+
+## Opdracht 2
+
+In deze regels code staan de coördinaten en de kleur van de vis: 
+```
+fish.style.transform = "translate(200px, 100px)"
+fish.style.filter = "hue-rotate(200deg)"
+```
+
+- Vervang de x en y waarden van de vis en bubble door willekeurige waarden.
+- Geef de vis een willekeurige kleur (hue-rotate) tussen 0 en 360
 - Zorg dat de vis en bubble wel altijd binnen beeld blijven
 
-```
-let screenSize = window.innerWidth
-let randomNumber = Math.random() * 100
-```
+## Opdracht 3
 
-### OPDRACHT
+- Maak een for loop die 100 (of meer?) visjes en bubbles toevoegt. 
 
-- Maak een for loop die 100 visjes en bubbles toevoegt. 
-- Ze moeten allemaal een eigen plek en kleur krijgen.
+## Extra uitdaging
 
-### OPDRACHT
+- Voeg een click event listener toe aan elk visje en bubble. 
+- Als geklikt wordt op de vis geef je de geklikte vis de CSS class "deadfish" door `element.classList.add("deadfish")` te gebruiken.
+- Als geklikt wordt op de bubble verwijder je het element met `element.remove()`
 
-Lees de [documentatie van setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout)
-- Gebruik nu setTimeout om steeds met een tussenpauze nieuwe visjes en bubbles te plaatsen. 
-- Lukt het je om te stoppen als er 100 visjes zijn?
-
-```
-setTimeout(functie, tijd)
-```
-
-### OPDRACHT
-
-- Voeg een click event listener toe aan elk visje. 
-- Als geklikt wordt geef je de geklikte vis een nieuwe class die een andere achtergrond heeft 
-```
-element.addEventListener("click", clickHandler)
-element.classList.add("deadfish")
-```
