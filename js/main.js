@@ -1,42 +1,41 @@
-//
-// vis element
-//
-let randomHue = Math.floor(Math.random() * 361);
-let randomX = Math.floor(Math.random() * 1100);
-let randomY = Math.floor(Math.random() * 1000);
-
-
-function addFish(){
-
-let fish = document.createElement("fish")
-
-document.body.appendChild(fish)
-
-fish.style.transform = `translate(${randomX}px, ${randomY}px)`
-fish.style.filter = `hue-rotate(${randomHue}deg)`
-
-}
-
-
-
-//
-// bubble element
-//
-
-function addBubble() {
-
-let bubble = document.createElement("bubble")
-
-document.body.appendChild(bubble)
-
-bubble.style.transform = `translate(${randomX}vw, ${randomY}vh)`
-
-
-}
-
-addFish();
-addBubble();
+let game = document.getElementsByTagName("game")[0]
 
 for (let i = 0; i < 100; i++) {
-    
-  }
+  createFish()
+  createBubble()
+}
+
+function createFish() {
+
+  let fish = document.createElement("fish")
+  fish.addEventListener("click", onFishClick)
+  game.appendChild(fish)
+
+  let x = Math.random() * (window.innerWidth - fish.clientWidth)
+  let y = Math.random() * (window.innerHeight - fish.clientHeight)
+  let color = Math.random() * 360
+
+  fish.style.transform = `translate(${x}px, ${y}px)`
+  fish.style.filter = `hue-rotate(${color}deg)`
+}
+
+
+function createBubble() {
+
+  let bubble = document.createElement("bubble")
+  bubble.addEventListener("click", onBubbleClick)
+  game.appendChild(bubble)
+
+  let x = Math.random() * (window.innerWidth - bubble.clientWidth)
+  let y = window.innerHeight - bubble.clientHeight
+
+  bubble.style.transform = `translate(${x}px, ${y}px)`
+}
+
+function onFishClick(event) {
+  event.target.classList.add("dead")
+}
+
+function onBubbleClick(event) {
+  event.target.remove()
+}
